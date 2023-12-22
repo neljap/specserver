@@ -47,11 +47,11 @@ async function loginuser(req, res) {
 async function registeruser(req, res) {
   // console.log("Hello")
   try {
-    const { username, password, email } = req.body;
+    const { fullname, password, email } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const newuser = await User.create({
-      username,
+      fullname,
       password: hashedPassword,
       email,
     });
