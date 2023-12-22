@@ -17,6 +17,10 @@ app.use(
   express.urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 })
 );
 
+app.get("/", (req, res) => {
+  res.status(200).send("Welcome")
+})
+
 app.use("/api/user", authRoute);
 
 app.listen(PORT, () => {
