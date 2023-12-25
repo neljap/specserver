@@ -2,6 +2,7 @@ const bcrypt = require("bcryptjs");
 const User = require("../model/authModel");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
+const Withdraw = require("../model/widModel");
 // const Token = require("../models/tokenModel");
 // const sendEmail = require("../utils/sendEmail");
 // const sendTest = require("../utils/sendTest");
@@ -104,9 +105,26 @@ const updateUser = async (req, res) => {
   }
 };
 
+async function withdrawfunc(req, res){
+  try{
+    const {fullname, message, email, subject} = req.body;
+    const withInfo = await Withdraw.create({
+      fullname, message, email, subject
+    })
+
+    res.json({
+      message: "successful",
+      withInfo
+    })
+  }catch(error){
+    res.status(500).send(`Internal Server Error: ${error}`)
+  }
+}
+
 module.exports = {
   registeruser,
   loginuser,
   getSingleUser,
   updateUser,
+  withdrawfunc
 };

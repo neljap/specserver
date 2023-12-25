@@ -12,13 +12,8 @@ database();
 
 let app = express();
 
-const corsOrigin = {
-  origin: "http://localhost:3000", //or whatever port your frontend is using
-  credentials: true,
-  optionSuccessStatus: 200,
-};
 
-app.use(cors(corsOrigin));
+app.use(cors());
 app.use(express.json({ limit: "50mb" }));
 app.use(
   express.urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 })
@@ -27,7 +22,7 @@ app.use(
 app.get("/", (req, res) => {
   res.status(200).send("Welcome")
 })
-// app.use("/api/user", contactmsg);
+
 app.use("/api/user", authRoute);
 
 
