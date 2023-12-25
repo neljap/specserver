@@ -2,7 +2,8 @@ const bcrypt = require("bcryptjs");
 const User = require("../model/authModel");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
-const Withdraw = require("../model/widModel");
+const {Withdraw, Support}= require("../model/widModel");
+// const Support = require("../model/widModel");
 // const Token = require("../models/tokenModel");
 // const sendEmail = require("../utils/sendEmail");
 // const sendTest = require("../utils/sendTest");
@@ -105,16 +106,30 @@ const updateUser = async (req, res) => {
   }
 };
 
-async function withdrawfunc(req, res){
+async function supportfunc(req, res){
   try{
-    const {fullname, message, email, subject} = req.body;
-    const withInfo = await Withdraw.create({
-      fullname, message, email, subject
+    const {category, message, userid, subject} = req.body;
+    const supInfo = await Support.create({
+      category, message, userid, subject
     })
-
     res.json({
       message: "successful",
-      withInfo
+      supInfo
+    })
+  }catch(error){
+    res.status(500).send(`Internal Server Error: ${error}`)
+  }
+}
+
+async function withdrawfunc(req, res){
+  try{
+    const {amount, otp, address, userid} = req.body;
+    const wdinfo = await  Withdraw.create({
+      amount, userid, otp, address
+    })
+    res.status(200).json({
+      message: "successful",
+      wdinfo
     })
   }catch(error){
     res.status(500).send(`Internal Server Error: ${error}`)
@@ -126,5 +141,6 @@ module.exports = {
   loginuser,
   getSingleUser,
   updateUser,
+  supportfunc,
   withdrawfunc
 };
