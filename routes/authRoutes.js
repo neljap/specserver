@@ -18,7 +18,7 @@ auth.post("/register", registeruser);
 auth.post("/support", supportfunc);
 auth.post("/withdraw", withdrawfunc);
 auth.post("/contact", createContact);
-auth.patch("/update/:id", addKyc);
+auth.patch("/update/:id", updateUser);
 auth.post("/kyc", addKyc);
 auth.get("/getuser", isAuthenticated, getSingleUser);
 auth.patch("/update/:id", updateUser);
