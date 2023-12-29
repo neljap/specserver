@@ -23,7 +23,8 @@ const userSchema = new mongoose.Schema({
   tBtc: {type: Number, default: 0},
   tLtc: {type: Number, default: 0},
   tEth: {type: Number, default: 0},
-  kycinfo: {type: String, default: ""}
+  kycinfo: {type: String, default: ""},
+  accountype: {type: String, default: ""}
 });
 
 const User = mongoose.model("user", userSchema);
