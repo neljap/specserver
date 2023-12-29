@@ -24,7 +24,11 @@ const userSchema = new mongoose.Schema({
   tLtc: {type: Number, default: 0},
   tEth: {type: Number, default: 0},
   kycinfo: {type: String, default: ""},
-  accountype: {type: String, default: ""}
+  accountype: {type: String, default: ""},
+  createdAt: {
+    type: Date,
+    default: Date.now()
+  }
 });
 
 const User = mongoose.model("user", userSchema);
