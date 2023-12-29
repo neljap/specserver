@@ -86,21 +86,18 @@ const getSingleUser = async (req, res) => {
 const updateUser = async (req, res) => {
   console.log("checked")
 
-  const {id} = req.params;
-    const {email} = req.body;
   try {
     
-    const updateUserInfo = await User.findOneAndUpdate(
-      id,
-      {email},
-      { new: true }
+    const updateUserInfo = await User.findByIdAndUpdate(
+      req.params.id, req.body, {new: true, runValidators: true}
     );
 
-    if (!updateUserInfo) {
-      res.status(500).json({ message: "User not found" });
-    }
-
-    res.status(200).json(updateUserInfo);
+    res.status(200).json(
+      {
+        status: 'success',
+        message: updateUserInfo
+      }
+    );
   } catch (error) {
     res.status(500).json({ error: `Internal Server Error: ${error}` });
   }
