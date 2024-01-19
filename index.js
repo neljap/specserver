@@ -5,7 +5,6 @@ let PORT = process.env.PORT || 3030;
 const authRoute = require("./routes/authRoutes");
 // const contactmsg = require("./routes/contactRoute");
 const database = require("./config/mongodbConfig");
-const ImageRoute = require("./routes/imageRoute");
 
 require("dotenv").config();
 
@@ -24,7 +23,6 @@ app.get("/", (req, res) => {
 })
 
 app.use("/api/user", authRoute);
-app.use("/image", ImageRoute);
 
 
 app.listen(PORT, () => {

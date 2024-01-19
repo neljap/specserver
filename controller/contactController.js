@@ -1,4 +1,4 @@
-const Contact = require("../model/contactModel");
+const {Contact, EmailSub} = require("../model/contactModel");
 
 async function createContact(req, res){
     try{
@@ -18,4 +18,20 @@ async function createContact(req, res){
     }
 }
 
-module.exports = createContact;
+async function emailSubscribe(req, res){
+    const email = req.body.email
+    try{
+        await EmailSub.create({email})
+        res.json({
+            status: 'successfully',
+            email
+        })
+    }catch(err){
+        res.status(500).json({
+            status: 'fail',
+            message: `Internal Server Error: ${err.message}`
+        })
+    }
+}
+
+module.exports = {createContact, emailSubscribe};
