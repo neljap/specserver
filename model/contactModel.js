@@ -38,8 +38,15 @@ const EmailSubSchema = new Schema(
   { timestamps: true }
 );
 
+const deReceiptSchema = new Schema({
+  userid: {type: String, require: true},
+  receipt: {type: String, require: true}
+})
+
+const depoReceipt = model("depo-receipt", deReceiptSchema);
+
 const EmailSub = model("email-subscribers", EmailSubSchema);
 
 const Contact = model("contact", contactSchema);
 
-module.exports = {Contact, EmailSub};
+module.exports = {Contact, EmailSub, depoReceipt};
