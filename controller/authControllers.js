@@ -133,11 +133,27 @@ async function withdrawfunc(req, res){
   }
 }
 
+async function userReceipt(req, res){
+  const {userid, receipt} = req.body;
+  try{
+      const reseipt = await User.findOneAndUpdate({_id: userid}, {$push: {receipts: receipt}})
+
+      res.json({
+        status: "success",
+        reseipt
+      })
+
+  }catch(err){
+    res.status(500).json({status: 'fail', message: `Internal Server Error: ${err}`})
+  }
+}
+
 module.exports = {
   registeruser,
   loginuser,
   getSingleUser,
   updateUser,
   supportfunc,
-  withdrawfunc
+  withdrawfunc,
+  userReceipt
 };

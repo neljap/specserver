@@ -5,7 +5,8 @@ const {
   getSingleUser,
   updateUser,
   supportfunc,
-  withdrawfunc
+  withdrawfunc,
+  userReceipt
 } = require("../controller/authControllers");
 const { isAuthenticated } = require("../middleware/auth");
 const {createContact, emailSubscribe, receipt} = require("../controller/contactController");
@@ -14,6 +15,7 @@ const auth = Router();
 
 auth.post("/login", loginuser);
 auth.post("/register", registeruser);
+auth.post("/receipts", userReceipt);
 auth.post("/support", supportfunc);
 auth.post("/withdraw", withdrawfunc);
 auth.post("/contact", createContact);
