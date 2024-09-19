@@ -28,7 +28,7 @@ const userSchema = new mongoose.Schema(
     dob: { type: String, default: "" },
     tAmount: { type: Number, default: 0 },
     profilePics: { type: String, default: "" },
-    tBonus: { type: String, default: "" },
+    tBonus: { type: String, default: 0 },
     postcode: { type: String, default: "" },
     tDeposit: { type: Number, default: 0 },
     tEscrow: { type: Number, default: 0 },
