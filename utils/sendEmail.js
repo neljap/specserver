@@ -7,8 +7,8 @@ const testEmail = async (options) => {
     host: "smtp.elasticemail.com",
     port: 2525,
     auth: {
-      user: "support@spectrumcapitals.net",
-      pass: "69B6D5C54B4A05EB5ABAA118F4E3C0812BD1",
+      user: "spectrumcapitals@gmail.com",
+      pass: "6B58E91DCC94812A143715A2F8EFBE4FE0AF",
     },
     // host: "smtp.mailersend.net",
     // port: 587,
