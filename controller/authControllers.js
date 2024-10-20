@@ -7,7 +7,8 @@ const { Withdraw, Support } = require("../model/widModel");
 // const Token = require("../models/tokenModel");
 // const sendEmail = require("../utils/sendEmail");
 // const sendTest = require("../utils/sendTest");
-const sendEmail = require("../utils/sendEmail");
+// const sendEmail = require("../utils/sendEmail");
+const {testEmail} = require("../utils/sendEmail")
 
 const signInToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -64,7 +65,8 @@ async function registeruser(req, res) {
       html: `Hi ${fullname}, Welcome to Spectrum Capitals – where every investment opens doors to a world of growth and prosperity. We appreciate your trust in us and are committed to delivering exceptional returns on your investment. Our team is dedicated to navigating the dynamic landscape of opportunities, ensuring your financial goals align seamlessly with our strategic expertise. Together, let's build a future of success, innovation, and wealth. Thank you for choosing Spectrum Capitals as your investment partner.`,
     };
 
-    sendEmail(mailOptions);
+    testEmail(mailOptions)
+    // sendEmail(mailOptions);
     // sendEmail(mailOptions);
 
     res.json({

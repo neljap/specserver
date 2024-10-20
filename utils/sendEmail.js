@@ -38,4 +38,4 @@ const testEmail = async (options) => {
   
 };
 
-module.exports = testEmail;
+module.exports = {testEmail};
