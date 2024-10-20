@@ -4,18 +4,18 @@ const testEmail = async (options) => {
     try{
    // 1) Create a transporter
   const transporter = nodemailer.createTransport({
-    // host: "smtp.elasticemail.com",
-    // port: 2525,
-    // auth: {
-    //   user: "support@spectrumcapitals.com",
-    //   pass: "0A338E12A6C0886BC92190FF60489FBFFA02",
-    // },
-    host: "smtp.mailersend.net",
-    port: 587,
+    host: "smtp.elasticemail.com",
+    port: 2525,
     auth: {
-      user: "MS_hFvArT@spectrumcapitals.net",
-      pass: "5Kcwslie8J6FyWMb",
+      user: "support@spectrumcapitals.net",
+      pass: "69B6D5C54B4A05EB5ABAA118F4E3C0812BD1",
     },
+    // host: "smtp.mailersend.net",
+    // port: 587,
+    // auth: {
+    //   user: "MS_hFvArT@spectrumcapitals.net",
+    //   pass: "5Kcwslie8J6FyWMb",
+    // },
     tls: {
       rejectUnauthorized: false,
     },
